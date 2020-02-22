@@ -1,0 +1,31 @@
+Sort by Bits
+First in C, then Python, then CUDA?
+Sort an array of 32 bit integers in ascending order of the number of on bits they have.
+
+Number of on bits == popcount
+
+I will initially use the Hackers Delight popcount and then the Intel intrinsic
+
+array will be randomly generated, input will be the number of integers
+then popcounts will be saved into array...actually let's make ... a struct:
+
+Code my own sort?
+
+Is there a pattern for popcount for sorted values? A Bin sort?
+How does radix sort work again?
+
+Initially let's do the simple way, then try to be clever later?
+
+Simple Way:
+Define Type Struct sort_by_bits_s: int val, int popcount
+1. Declare array, sbb_array, of num_vals sort_by_bits_s structs
+2. For num_val sort_by_bit_s structs in sbb_array:
+     Gen val
+     Calculate popcount for val
+     sbb_i.val = val
+     sbb_i.popcount = popcount
+3. Sort sbb by popcount field from least to greatest
+
+Hackers Delight Ed 2 has a way of comparing the popcount of two words.. without calculating either popcount!
+Holy Crap...
+That's pretty clever
